@@ -5,6 +5,11 @@ const komut = document.querySelector(".komut")
 let attempt = document.querySelector(".attempt span")
 let randomNum = Math.floor(Math.random()*100)
 
+const clapSound = () => {
+let sound = new Audio("clapSound.mp3")
+sound.play()
+} //Alkış sesi çalan clapSound isminde bir fonksiyon oluşturdum.
+
 console.log(randomNum);
 
 button.addEventListener("click", () => {
@@ -24,6 +29,7 @@ button.addEventListener("click", () => {
         input.focus()
     } else if (tahmin==randomNum) {
         komut.innerText = `CONGRULATIONS! The number is ${randomNum}.`
+        clapSound()
         input.value = ""
     } else if (tahmin!==Number) {
         komut.innerText = `You should enter a valid value!`
