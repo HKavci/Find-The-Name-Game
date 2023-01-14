@@ -28,7 +28,7 @@ button.addEventListener("click", () => {
         input.value = ""
         input.focus()
     } else if (tahmin==randomNum) {
-        komut.innerText = `CONGRULATIONS! The number is ${randomNum}.`
+        komut.innerText = `CONGRATULATIONS! The number is ${randomNum}.`
         clapSound()
         input.value = ""
     } else if (tahmin!==Number) {
