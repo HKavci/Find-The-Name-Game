@@ -5,18 +5,24 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: #8BC6EC;
-    /* background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%); */
-
-    /* background-repeat: no-repeat */
-    text-align: center;
+    background: linear-gradient(
+    to right, rgb(40, 144, 214), rgba(139, 198, 236, 0.3));
+    justify-content: center;
+    align-items: center;
 }
 
 .baslik {
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
     font-size: 2.5rem;
-    
+}
+
+#hat {
+    margin: 1rem auto;
+    width: 12rem;
 }
 
 #input-number {
