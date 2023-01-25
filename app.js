@@ -3,17 +3,19 @@ const button = document.querySelector("#btn")
 const refresh = document.querySelector("#refresh")
 const komut = document.querySelector(".komut")
 let attempt = document.querySelector(".attempt span")
-let randomNum = Math.floor(Math.random()*100)
+let randomNum = Math.ceil(Math.random()*100)
 
 const clapSound = () => {
 let sound = new Audio("clapSound.mp3")
 sound.play()
 } //Alkış sesi çalan clapSound isminde bir fonksiyon oluşturdum.
 
-console.log(randomNum);
+window.addEventListener("load", ()=>{
+    input.focus()
+})
 
 button.addEventListener("click", () => {
-    attempt.innerText = parseInt(attempt.innerText) + 1 //Attempt değerini parseInt ile number a çevirip her tıklamada number of attempts sayısının 1 artırılmasını sağladım.
+    attempt.innerText = parseInt(attempt.innerText) + 1 
     let tahmin = input.value
     if (tahmin<0 || tahmin >100) {
         komut.innerText = "The number should be between 0 - 100"
@@ -31,10 +33,10 @@ button.addEventListener("click", () => {
         komut.innerText = `CONGRATULATIONS! The number is ${randomNum}.`
         clapSound()
         input.value = ""
-    } else if (tahmin!==Number) {
-        komut.innerText = `You should enter a valid value!`
-        input.value = ""
-        input.focus()
+    }
+    if (attempt.innerText == 5 && tahmin != randomNum) {
+        alert("You have lost! Try again!")
+        location.reload()
     }
 })
 
@@ -46,4 +48,5 @@ input.addEventListener("keydown", (event)=> {
 //Aşağıda refresh butonuna tıklandığında sayfanın yenilenmesini sağladım.
 refresh.addEventListener("click", () => {
     location.reload()
+    input.focus()
 })
